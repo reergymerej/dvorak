@@ -79,7 +79,7 @@
   };
 
   var addWorkingAlphabet = function () {
-    return $('<div>', { class: 'alphabet' }).appendTo($('#out'));
+    return $('<div>', { class: 'alphabet' }).prependTo($('#out'));
   };
 
   $('body').on('keypress', handlePress);
