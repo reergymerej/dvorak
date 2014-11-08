@@ -2,7 +2,7 @@
   'use strict';
 
   var START_KEYCODE = 97;  // a
-  var END_KEYCODE = 100;  // z
+  var END_KEYCODE = 122;  // z
   var targetKeyCode;
   var startTimestamp;
   var workingAlphabet;
