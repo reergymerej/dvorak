@@ -1,0 +1,29 @@
+#content {
+  width: 400px;
+}
+
+#out {
+  margin: auto;
+  display: block;
+  font-size: 2em;
+  font-family: monospace;
+}
+
+.duration {
+  font-size: .5em;
+  color: #666;
+  margin: auto 1em;
+}
+
+.error-count {
+  font-size: .5em;
+  color: red;
+  margin: auto 1em;
+}
+
+#go {
+  font-size: 1.5em;
+  width: 3em;
+  float: right;
+  cursor: pointer;
+}
