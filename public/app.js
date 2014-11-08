@@ -2,12 +2,13 @@
   'use strict';
 
   var START_KEYCODE = 97;  // a
-  // var END_KEYCODE = 122;  // z
   var END_KEYCODE = 100;  // z
   var targetKeyCode;
   var startTimestamp;
   var workingAlphabet;
   var errorCount;
+  var monitor = $('#monitor');
+  var layout = $('img');
 
   var init = function () {
     targetKeyCode = START_KEYCODE;
@@ -19,9 +20,14 @@
 
   var handlePress = function (event) {
     var key = String.fromCharCode(event.which);
+    var matched;
 
     if (targetKeyCode) {
-      if (isMatch(event.which)) {
+      matched = isMatch(event.which);
+      layout.toggle(!matched);
+      monitor.toggle(!matched);
+
+      if (matched) {
         handleMatch(key);
       } else {
         handleMiss(key);
@@ -31,8 +37,11 @@
     }
   };
 
+  var showPressedKey = function (key) {
+    monitor.html(key);
+  };
+
   var isMatch = function (keycode) {
-    console.log(keycode, String.fromCharCode(keycode));
     return keycode === targetKeyCode;
   };
 
@@ -44,8 +53,9 @@
     }
   };
 
-  var handleMiss = function (keycode) {
+  var handleMiss = function (key) {
     errorCount++;
+    showPressedKey(key);
   };
 
   var handleEnd = function () {
